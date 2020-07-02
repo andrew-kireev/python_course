@@ -22,12 +22,12 @@ def create():
     blog1.subscribers.add(u1, u2)
     blog2.subscribers.add(u2)
 
-    topik1 = Topic.objects.create(title='topik1', blog=blog1, author=u1)
-    topik1.save()
-    topik2 = Topic.objects.create(title='topik2', blog=blog1, author=u3,
+    topic1 = Topic.objects.create(title='topic1', blog=blog1, author=u1)
+    topic1.save()
+    topic2 = Topic.objects.create(title='topic2_content', blog=blog1, author=u3,
                                   created=datetime(year=2017, month=1, day=1, tzinfo=UTC))
-    topik2.save()
-    topik1.likes.add(u1, u2, u3)
+    topic2.save()
+    topic1.likes.add(u1, u2, u3)
 
 def edit_all():
     User.objects.all().update(first_name='uu1')
@@ -54,32 +54,34 @@ def get_topic_title_ended():
 
 
 def get_user_with_limit():
-    return User.objects.all().order_by('id')[:-2]               # мб нужно сделать '-id'
+    return User.objects.all().order_by('-id')[:2]               # мб нужно сделать '-id'
 
 
 def get_topic_count():
-    return Blog.objects.annotate(topic_count=Count('topic').order_by('topic_count'))
+    return Blog.objects.annotate(topic_count=Count('topic')).order_by('topic_count')
 
 
 def get_avg_topic_count():
-    pass
+    return Blog.objects.annotate(topic_count=Count('topic')).aggregate(
+        avg=Avg('topic_count'))
 
 
 def get_blog_that_have_more_than_one_topic():
-    pass
+    return Blog.objects.annotate(topic_count=Count('topic')).filter(topic_count__gt=1)
 
 
 def get_topic_by_u1():
-    pass
+    return Topic.objects.filter(author__first_name='u1')
 
 
 def get_user_that_dont_have_blog():
-    pass
+    return User.objects.filter(blog__isnull=True).order_by('pk')
 
 
 def get_topic_that_like_all_users():
-    pass
+    user = User.objects.count()
+    return Topic.objects.annotate(like=Count('likes')).filter(like=user)
 
 
 def get_topic_that_dont_have_like():
-    pass
+    return Topic.objects.filter(likes__isnull=True)
