@@ -1,0 +1,11 @@
+{% if a != None %}
+    {{method_name|lower}} a : {{ a }} statement is {{ head}}
+{% elif b != None %}
+    {{method_name|lower}} b : {{ b }} statement is {{ head}}
+{% elif c != None %}
+    {{method_name|lower}} c : {{ c }} statement is {{ head}}
+{% elif d != None %}
+    {{method_name|lower}} d : {{ d }} statement is {{ head}}
+{% else %}
+    statement is {{ head}}
+{% endif %}
