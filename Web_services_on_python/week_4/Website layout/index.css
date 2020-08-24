@@ -1,0 +1,18 @@
+.rating {
+    padding: 25px 50px 75px;
+}
+
+.rating__down {
+    margin-top: 10px;
+}
+
+.rating__number {
+    margin-top: 10px;
+}
+
+.side_tags {
+    font-size: 25px;
+    color: gray;
+    font-family: "Gill Sans", sans-serif;
+    
+}

@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar navbar-lig bg-dark">
         <a class="navbar-brand">Segmentation fault</a>
         
         <ul class="navbar-nav mr-auto">
@@ -26,6 +26,65 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </nav>
+
+      <hr style="margin-top: 70px">
+
+      <div class="container-fluid">
+            <div class="row post">
+              <div class="col-2 avatar-bar">
+                <center>
+                  <img class="avatar" src="https://klike.net/uploads/posts/2019-07/1564314090_3.jpg" width="200" height="200">
+                  <div class="rating">
+                    <div class="rating__up">
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi_bi-caret-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M3.204 11L8 5.519 12.796 11H3.204zm-.753-.659l4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
+                      </svg>
+                    </div>
+                    <div class="rating__number">
+                      <p style="line-height: 5%;"><span>10</span></p>
+                    </div>
+                      <div class="rating__down">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi_bi-caret-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </center>
+                </div>
+              <div class="col-8">
+                  <h4>Problem with std optional copy constructor</h4>
+                  <p> I'm very confused about how std::optional's copy constructor is supposed to be implemented to meet the requirements of being constexpr.
+                    Note there are many other questions on Stackoverflow asking something similar, such as:
+                    How to implement std::optional's copy constructor?
+                    std::optional implemented as union vs char[]/aligned_storage
+                    However, neither of these questions are actually asking about the COPY CONSTRUCTOR. I am specifically asking about the copy constructor, 
+                    with a function signature 
+                    (from https://en.cppreference.com/w/cpp/utility/optional/optional) as follows:
+                    constexpr optional( const optional& other );
+                    Now, I've read enough about std::optional to know the basics. A typical mistake implementors make is to try and implement it with std::aligned_storage. 
+                    Since placement new cannot work in a constexpr (at least in C++17), this won't work. Instead, 
+                    a union type needs to be used so it can be directly constructed. Something like:
+                  </p>
+                  <p><b>Tags</b>: <a href="#"><u>Std::optional</u></a> <a href="#"><u>C++17</u></a> <a href="#"><u>Copy constructor</u></a></p>
+              </div>
+              <div class = "col-2 bok">
+                <h2>Popular Tags</h2>
+                <div class="side_tags">
+                  <p> 
+                    python  django
+                  </p> 
+                  <p> 
+                    machine-learning
+                  </p> 
+                  <p> 
+                    linux
+                  </p> 
+                </div>
+              </div>
+      </div>
+
+
+
 
 </body>
 </html>
