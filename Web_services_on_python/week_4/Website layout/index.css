@@ -16,3 +16,11 @@
     font-family: "Gill Sans", sans-serif;
     
 }
+
+a.navbar-brand {
+    color: white;
+}
+
+.img-line {
+    margin-left: 50px;
+}
