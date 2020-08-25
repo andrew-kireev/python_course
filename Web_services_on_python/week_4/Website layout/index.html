@@ -11,9 +11,9 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand">Segmentation fault</a>
+        <a class="navbar-brand"><a href="#" class="page-name">Segmentation fault</a></a>
         
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -121,7 +121,7 @@
                         </svg> </a>
                       </div>
                       <div class="rating__number">
-                        <p style="line-height: 5%;"><span>10</span></p>
+                        <p style="line-height: 5%;"><span>4</span></p>
                       </div>
                         <div class="rating__down">
                           <a href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi_bi-caret-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -134,20 +134,20 @@
               </div>
               <div class="col-8">
                 <hr style="margin-top: -70px">
-                <h4>Problem with std optional copy constructor</h4>
-                <p> I'm very confused about how std::optional's copy constructor is supposed to be implemented to meet the requirements of being constexpr.
-                  Note there are many other questions on Stackoverflow asking something similar, such as:
-                  How to implement std::optional's copy constructor?
-                  std::optional implemented as union vs char[]/aligned_storage
-                  However, neither of these questions are actually asking about the COPY CONSTRUCTOR. I am specifically asking about the copy constructor, 
-                  with a function signature 
-                  (from https://en.cppreference.com/w/cpp/utility/optional/optional) as follows:
-                  constexpr optional( const optional& other );
-                  Now, I've read enough about std::optional to know the basics. A typical mistake implementors make is to try and implement it with std::aligned_storage. 
-                  Since placement new cannot work in a constexpr (at least in C++17), this won't work. Instead, 
-                  a union type needs to be used so it can be directly constructed. Something like:
+                <p> For C++17, see [optional.ctor]/6:
+
+                  ... If is_trivially_copy_constructible_v<T> is true, this constructor shall be a constexpr constructor.
+                  
+                  In that case, the union will also be trivially copyable, so there is no problem.
+                  
+                  In all other cases, the constructor will still carry the constexpr specifier even though it can't be used in a constant expression. 
+                  This is ok: a function template (or member function of class template) is allowed to be declared constexpr as 
+                  long as it has at least one possible instantiation that is usable in constant expressions. ([dcl.constexpr]/6)
+                  
+                  In C++20, the wording has changed thanks to P0602R4. However, I think that this did not change the constexpr requirements. 
+                  If T is trivially copyable, then the constructor is trivial, which implies that it's also constexpr. If T is not trivially copyable, 
+                  then the standard does not say the constructor must be usable in constant expressions, so there is no such requirement.
                 </p>
-                <p><b>Tags</b>: <a href="#"><u>Std::optional</u></a> <a href="#"><u>C++17</u></a> <a href="#"><u>Copy constructor</u></a></p>
             </div>
             </div>
       </div>
