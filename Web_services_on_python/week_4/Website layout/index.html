@@ -39,21 +39,7 @@
                 <div class="row img-line">
                 <center>
                   <img class="avatar" src="https://klike.net/uploads/posts/2019-07/1564314090_3.jpg" width="200" height="200">
-                  <div class="rating">
-                    <div class="rating__up">
-                      <a href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi_bi-caret-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M3.204 11L8 5.519 12.796 11H3.204zm-.753-.659l4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
-                      </svg> </a>
-                    </div>
-                    <div class="rating__number">
-                      <p style="line-height: 5%;"><span>10</span></p>
-                    </div>
-                      <div class="rating__down">
-                        <a href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi_bi-caret-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-                        </svg> </a>
-                      </div>
-                    </div>
+                  <input class="like" type="number" value="2"/>
                   </center>
                   </div>
                
@@ -114,22 +100,7 @@
                 <div class="row img-line">
                   <center>
                     <img class="avatar" src="https://ilso.ru/wp-content/uploads/2020/05/gopher.png" width="200" height="200">
-                    <div class="rating">
-                      <div class="rating__up">
-                        <a href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi_bi-caret-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" d="M3.204 11L8 5.519 12.796 11H3.204zm-.753-.659l4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
-                        </svg> </a>
-                      </div>
-                      <div class="rating__number">
-                        <p style="line-height: 5%;"><span>4</span></p>
-                      </div>
-                        <div class="rating__down">
-                          <a href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi_bi-caret-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-                          </svg> </a>
-                        </div>
-                      </div>
-                    </center>
+                    <input class="like" type="number" value="7"/>
                 </div>
               </div>
               <div class="col-8">
@@ -150,11 +121,34 @@
                 </p>
             </div>
             </div>
+
+            <div class="row third_line">
+              <div class="col-2 answ">
+                <hr style="margin-top: -70px">
+                <div class="row img-line">
+                  <center>
+                    <img class="avatar" src="https://espanarusa.com/files/autoupload/62/16/17/2tzs30a4408916.jpg" width="200" height="200">
+                    <input class="like" type="number" value="3"/>
+                </div>
+              </div>
+              <div class="col-8">
+                <hr style="margin-top: -70px">
+                <p> 
+                  The class template std::optional manages an optional contained value, 
+                  i.e. a value that may or may not be present. A common use case for optional is the return value of a 
+                  function that may fail. 
+                  As opposed to other approaches, such as std::pair<T,bool>, 
+                    optional handles expensive-to-construct objects well and is more readable, 
+                    as the intent is expressed explicitly.
+                </p>
+            </div>
+            </div>
+
       </div>
       <div class="container-fluid">
         <div class="row write">
           <div class="col-10">
-            <hr style="margin-top: -60px">
+            <hr style="margin-top: 30px">
             <div class="form-group">
               <label for="exampleTextarea">Answer</label>
               <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your answer here..."></textarea>

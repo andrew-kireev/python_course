@@ -25,10 +25,11 @@ a.navbar-brand {
     margin-left: 30px;
 }
 
-/* .line {
-    margin-top: -40px;
-    margin-bottom: 40px;
-} */
+.like {
+    display: table;
+    width: 4em;
+    margin: 10px auto 0;
+}
 
 .line2 {
     margin-top: 90px;
@@ -46,4 +47,9 @@ a.navbar-brand {
 
 .avatar {
     border: 2px solid;
+}
+
+
+.third_line {
+    margin-top: 100px;
 }
